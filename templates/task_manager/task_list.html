@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <h1 class="page-title h3 mb-0">Tasks</h1>
+    <a href="{% url 'task_manager:task-create' %}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> New task</a>
+  </div>
+  {% include "includes/search_form.html" %}
+  {% if task_list %}
+    <div class="card">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Priority</th>
+              <th>Deadline</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for task in task_list %}
+              <tr>
+                <td>
+                  <a href="{{ task.get_absolute_url }}" class="fw-semibold text-decoration-none {% if task.is_completed %}task-done{% endif %}">{{ task.name }}</a>
+                  <div>
+                    {% for tag in task.tags.all %}
+                      <span class="badge rounded-pill text-bg-light border">#{{ tag.name }}</span>
+                    {% endfor %}
+                  </div>
+                </td>
+                <td>{{ task.task_type }}</td>
+                <td>{% include "includes/priority_badge.html" %}</td>
+                <td>{{ task.deadline|date:"d M Y" }}</td>
+                <td>
+                  {% if task.is_completed %}
+                    <span class="text-success"><i class="bi bi-check-circle-fill"></i> Done</span>
+                  {% else %}
+                    <span class="text-warning"><i class="bi bi-clock"></i> In progress</span>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  {% else %}
+    <p class="text-muted">There are no tasks yet.</p>
+  {% endif %}
+{% endblock %}

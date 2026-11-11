@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h1 class="page-title h3 mb-1">Hello, {{ user.first_name|default:user.username }}!</h1>
+      <p class="text-muted mb-0">
+        You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.
+      </p>
+    </div>
+  </div>
+
+  <div class="row g-3 mb-4">
+    <div class="col-6 col-lg-3">
+      <div class="card stat-card p-3">
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="text-muted small">All tasks</div>
+            <div class="stat-value">{{ num_tasks }}</div>
+          </div>
+          <div class="stat-icon"><i class="bi bi-list-task"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-lg-3">
+      <div class="card stat-card p-3">
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="text-muted small">In progress</div>
+            <div class="stat-value">{{ num_active_tasks }}</div>
+          </div>
+          <div class="stat-icon"><i class="bi bi-hourglass-split"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-lg-3">
+      <div class="card stat-card p-3">
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="text-muted small">Completed</div>
+            <div class="stat-value">{{ num_completed_tasks }}</div>
+          </div>
+          <div class="stat-icon"><i class="bi bi-check2-circle"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-lg-3">
+      <div class="card stat-card p-3">
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="text-muted small">Workers</div>
+            <div class="stat-value">{{ num_workers }}</div>
+          </div>
+          <div class="stat-icon"><i class="bi bi-people"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card p-3">
+    <h2 class="h5 mb-3">My active tasks</h2>
+    {% if my_tasks %}
+      <div class="list-group list-group-flush">
+        {% for task in my_tasks %}
+          <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+            <div>
+              <div class="fw-semibold">{{ task.name }}</div>
+              <div class="small text-muted">{{ task.task_type }} · deadline {{ task.deadline|date:"d M Y" }}</div>
+            </div>
+            {% include "includes/priority_badge.html" %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-muted mb-0">You have no active tasks. Nice!</p>
+    {% endif %}
+  </div>
+{% endblock %}
