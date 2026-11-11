@@ -2,9 +2,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import QuerySet
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
+from django.views.decorators.http import require_POST
 
 from task_manager.forms import (
     SearchForm,
@@ -211,3 +212,23 @@ class TagUpdateView(FormPageMixin, generic.UpdateView):
 class TagDeleteView(DeletePageMixin, generic.DeleteView):
     model = Tag
     success_url = reverse_lazy("task_manager:tag-list")
+
+
+@login_required
+@require_POST
+def toggle_task_completed(request: HttpRequest, pk: int) -> HttpResponse:
+    task = get_object_or_404(Task, pk=pk)
+    task.is_completed = not task.is_completed
+    task.save(update_fields=["is_completed"])
+    return redirect(task.get_absolute_url())
+
+
+@login_required
+@require_POST
+def toggle_assign_to_task(request: HttpRequest, pk: int) -> HttpResponse:
+    task = get_object_or_404(Task, pk=pk)
+    if task.assignees.filter(pk=request.user.pk).exists():
+        task.assignees.remove(request.user)
+    else:
+        task.assignees.add(request.user)
+    return redirect(task.get_absolute_url())

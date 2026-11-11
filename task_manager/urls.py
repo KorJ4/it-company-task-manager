@@ -24,6 +24,8 @@ from task_manager.views import (
     WorkerListView,
     WorkerUpdateView,
     index,
+    toggle_assign_to_task,
+    toggle_task_completed,
 )
 
 urlpatterns = [
@@ -113,6 +115,16 @@ urlpatterns = [
         "tags/<int:pk>/delete/",
         TagDeleteView.as_view(),
         name="tag-delete",
+    ),
+    path(
+        "tasks/<int:pk>/toggle-completed/",
+        toggle_task_completed,
+        name="task-toggle-completed",
+    ),
+    path(
+        "tasks/<int:pk>/toggle-assign/",
+        toggle_assign_to_task,
+        name="task-toggle-assign",
     ),
 ]
 
