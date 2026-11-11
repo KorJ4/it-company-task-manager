@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment variables
+.env
+
+# Databases
+*.sqlite
+*.sqlite3
+*.db3
+
+# Static files collected for production
+staticfiles/
+
+# IDE and OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
