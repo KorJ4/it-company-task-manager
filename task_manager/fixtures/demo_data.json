@@ -1,0 +1,502 @@
+[
+{
+  "model": "task_manager.position",
+  "pk": 1,
+  "fields": {
+    "name": "Developer"
+  }
+},
+{
+  "model": "task_manager.position",
+  "pk": 2,
+  "fields": {
+    "name": "Designer"
+  }
+},
+{
+  "model": "task_manager.position",
+  "pk": 3,
+  "fields": {
+    "name": "Project manager"
+  }
+},
+{
+  "model": "task_manager.position",
+  "pk": 4,
+  "fields": {
+    "name": "QA engineer"
+  }
+},
+{
+  "model": "task_manager.position",
+  "pk": 5,
+  "fields": {
+    "name": "DevOps engineer"
+  }
+},
+{
+  "model": "task_manager.tasktype",
+  "pk": 1,
+  "fields": {
+    "name": "Bug"
+  }
+},
+{
+  "model": "task_manager.tasktype",
+  "pk": 2,
+  "fields": {
+    "name": "New feature"
+  }
+},
+{
+  "model": "task_manager.tasktype",
+  "pk": 3,
+  "fields": {
+    "name": "Breaking change"
+  }
+},
+{
+  "model": "task_manager.tasktype",
+  "pk": 4,
+  "fields": {
+    "name": "Refactoring"
+  }
+},
+{
+  "model": "task_manager.tasktype",
+  "pk": 5,
+  "fields": {
+    "name": "QA"
+  }
+},
+{
+  "model": "task_manager.tasktype",
+  "pk": 6,
+  "fields": {
+    "name": "Research"
+  }
+},
+{
+  "model": "task_manager.tag",
+  "pk": 1,
+  "fields": {
+    "name": "backend"
+  }
+},
+{
+  "model": "task_manager.tag",
+  "pk": 2,
+  "fields": {
+    "name": "frontend"
+  }
+},
+{
+  "model": "task_manager.tag",
+  "pk": 3,
+  "fields": {
+    "name": "api"
+  }
+},
+{
+  "model": "task_manager.tag",
+  "pk": 4,
+  "fields": {
+    "name": "landing-page-layout"
+  }
+},
+{
+  "model": "task_manager.tag",
+  "pk": 5,
+  "fields": {
+    "name": "python-refactoring"
+  }
+},
+{
+  "model": "task_manager.tag",
+  "pk": 6,
+  "fields": {
+    "name": "urgent-fix"
+  }
+},
+{
+  "model": "task_manager.tag",
+  "pk": 7,
+  "fields": {
+    "name": "docs"
+  }
+},
+{
+  "model": "task_manager.worker",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$yyeexwPrVjy5lqYaNRGwh6$MFNGGhvS6r3Hk5EtJYciQ9kk2PggWc/405JipUntIBI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user",
+    "first_name": "Demo",
+    "last_name": "User",
+    "email": "user@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-11T04:11:07.088Z",
+    "position": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "task_manager.worker",
+  "pk": 2,
+  "fields": {
+    "password": "!4JEJGcpXB3EDt2DJSuqPdZyMa46qMRjI2DFTgYx2",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "olena.k",
+    "first_name": "Olena",
+    "last_name": "Koval",
+    "email": "olena.k@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-11T04:11:07.274Z",
+    "position": 3,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "task_manager.worker",
+  "pk": 3,
+  "fields": {
+    "password": "!nuavcgxYUONPjKV3ebsyRpnk0QVdRrsgJzH38RfG",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "taras.m",
+    "first_name": "Taras",
+    "last_name": "Melnyk",
+    "email": "taras.m@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-11T04:11:07.277Z",
+    "position": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "task_manager.worker",
+  "pk": 4,
+  "fields": {
+    "password": "!kcWKGpGFAYZ7qwRxEhSqWoIkaDh72OgHiMLZoVwv",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "iryna.s",
+    "first_name": "Iryna",
+    "last_name": "Shevchenko",
+    "email": "iryna.s@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-11T04:11:07.279Z",
+    "position": 2,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "task_manager.worker",
+  "pk": 5,
+  "fields": {
+    "password": "!hgL83Ys8T5j7WLqDSj0eQCnalwU6K0TvHcrb7qUi",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "andrii.b",
+    "first_name": "Andrii",
+    "last_name": "Bondar",
+    "email": "andrii.b@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-11T04:11:07.280Z",
+    "position": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "task_manager.worker",
+  "pk": 6,
+  "fields": {
+    "password": "!tPIYcjAs5y1ET2sghb2pLKAWP5vsuHXOjXr3wsm9",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "maksym.l",
+    "first_name": "Maksym",
+    "last_name": "Lysenko",
+    "email": "maksym.l@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-11T04:11:07.281Z",
+    "position": 5,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 1,
+  "fields": {
+    "name": "Fix login redirect after logout",
+    "description": "After logout users land on the admin page instead of the login page.",
+    "deadline": "2026-11-20",
+    "is_completed": false,
+    "priority": "urgent",
+    "task_type": 1,
+    "assignees": [
+      5,
+      1
+    ],
+    "tags": [
+      1,
+      6
+    ]
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 2,
+  "fields": {
+    "name": "Design new landing page",
+    "description": "Hero block, pricing table and testimonials. Mobile first.",
+    "deadline": "2026-12-05",
+    "is_completed": false,
+    "priority": "high",
+    "task_type": 2,
+    "assignees": [
+      4
+    ],
+    "tags": [
+      2,
+      4
+    ]
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 3,
+  "fields": {
+    "name": "REST API for tasks",
+    "description": "Expose tasks through a JSON API with pagination.",
+    "deadline": "2026-12-15",
+    "is_completed": false,
+    "priority": "high",
+    "task_type": 2,
+    "assignees": [
+      3,
+      1
+    ],
+    "tags": [
+      3,
+      1
+    ]
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 4,
+  "fields": {
+    "name": "Refactor task views",
+    "description": "Move search logic into a reusable mixin.",
+    "deadline": "2026-11-28",
+    "is_completed": false,
+    "priority": "medium",
+    "task_type": 4,
+    "assignees": [
+      3
+    ],
+    "tags": [
+      1,
+      5
+    ]
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 5,
+  "fields": {
+    "name": "Regression tests for search",
+    "description": "Cover search with pagination and empty queries.",
+    "deadline": "2026-11-25",
+    "is_completed": false,
+    "priority": "medium",
+    "task_type": 5,
+    "assignees": [
+      5
+    ],
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 6,
+  "fields": {
+    "name": "Set up CI pipeline",
+    "description": "Run flake8 and tests on every pull request.",
+    "deadline": "2026-11-22",
+    "is_completed": true,
+    "priority": "high",
+    "task_type": 2,
+    "assignees": [
+      6
+    ],
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 7,
+  "fields": {
+    "name": "Write onboarding docs",
+    "description": "How to run the project locally and load demo data.",
+    "deadline": "2026-12-01",
+    "is_completed": false,
+    "priority": "low",
+    "task_type": 6,
+    "assignees": [
+      2,
+      1
+    ],
+    "tags": [
+      7
+    ]
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 8,
+  "fields": {
+    "name": "Upgrade to Django 5.2",
+    "description": "Check deprecations and update requirements.",
+    "deadline": "2026-12-10",
+    "is_completed": false,
+    "priority": "medium",
+    "task_type": 3,
+    "assignees": [
+      6,
+      3
+    ],
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 9,
+  "fields": {
+    "name": "Dark mode for dashboard",
+    "description": "Respect prefers-color-scheme in the UI.",
+    "deadline": "2027-01-15",
+    "is_completed": false,
+    "priority": "low",
+    "task_type": 2,
+    "assignees": [
+      4
+    ],
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 10,
+  "fields": {
+    "name": "Fix date picker on Safari",
+    "description": "Deadline input shows a text field on old Safari.",
+    "deadline": "2026-11-18",
+    "is_completed": true,
+    "priority": "high",
+    "task_type": 1,
+    "assignees": [
+      1
+    ],
+    "tags": [
+      2,
+      6
+    ]
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 11,
+  "fields": {
+    "name": "Plan sprint 12",
+    "description": "Collect estimates and agree on scope.",
+    "deadline": "2026-11-17",
+    "is_completed": true,
+    "priority": "medium",
+    "task_type": 6,
+    "assignees": [
+      2
+    ],
+    "tags": []
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 12,
+  "fields": {
+    "name": "Load testing",
+    "description": "Measure list pages with 10k tasks.",
+    "deadline": "2026-12-20",
+    "is_completed": false,
+    "priority": "low",
+    "task_type": 5,
+    "assignees": [
+      5,
+      6
+    ],
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 13,
+  "fields": {
+    "name": "Database backups",
+    "description": "Daily PostgreSQL backups with 7-day retention.",
+    "deadline": "2026-12-03",
+    "is_completed": false,
+    "priority": "urgent",
+    "task_type": 2,
+    "assignees": [
+      6
+    ],
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "task_manager.task",
+  "pk": 14,
+  "fields": {
+    "name": "Icon set for task types",
+    "description": "One icon per task type in the same style.",
+    "deadline": "2026-12-08",
+    "is_completed": false,
+    "priority": "low",
+    "task_type": 2,
+    "assignees": [
+      4
+    ],
+    "tags": [
+      2
+    ]
+  }
+}
+]
