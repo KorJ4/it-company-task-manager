@@ -2,9 +2,28 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
+from task_manager.forms import TaskForm, WorkerCreationForm, WorkerUpdateForm
 from task_manager.models import Position, Tag, Task, TaskType, Worker
+
+
+class ModelNameMixin:
+    """Adds a human-readable model name for the shared templates."""
+
+    def get_context_data(self, **kwargs) -> dict:
+        context = super().get_context_data(**kwargs)
+        context["model_name"] = self.model._meta.verbose_name
+        return context
+
+
+class FormPageMixin(LoginRequiredMixin, ModelNameMixin):
+    template_name = "task_manager/form.html"
+
+
+class DeletePageMixin(LoginRequiredMixin, ModelNameMixin):
+    template_name = "task_manager/confirm_delete.html"
 
 
 @login_required
@@ -73,3 +92,84 @@ class TaskTypeListView(LoginRequiredMixin, generic.ListView):
 class TagListView(LoginRequiredMixin, generic.ListView):
     model = Tag
     paginate_by = 10
+
+
+class TaskCreateView(FormPageMixin, generic.CreateView):
+    model = Task
+    form_class = TaskForm
+
+
+class TaskUpdateView(FormPageMixin, generic.UpdateView):
+    model = Task
+    form_class = TaskForm
+
+
+class TaskDeleteView(DeletePageMixin, generic.DeleteView):
+    model = Task
+    success_url = reverse_lazy("task_manager:task-list")
+
+
+class WorkerCreateView(FormPageMixin, generic.CreateView):
+    model = Worker
+    form_class = WorkerCreationForm
+
+
+class WorkerUpdateView(FormPageMixin, generic.UpdateView):
+    model = Worker
+    form_class = WorkerUpdateForm
+
+
+class WorkerDeleteView(DeletePageMixin, generic.DeleteView):
+    model = Worker
+    success_url = reverse_lazy("task_manager:worker-list")
+
+
+class PositionCreateView(FormPageMixin, generic.CreateView):
+    model = Position
+    fields = "__all__"
+    success_url = reverse_lazy("task_manager:position-list")
+
+
+class PositionUpdateView(FormPageMixin, generic.UpdateView):
+    model = Position
+    fields = "__all__"
+    success_url = reverse_lazy("task_manager:position-list")
+
+
+class PositionDeleteView(DeletePageMixin, generic.DeleteView):
+    model = Position
+    success_url = reverse_lazy("task_manager:position-list")
+
+
+class TaskTypeCreateView(FormPageMixin, generic.CreateView):
+    model = TaskType
+    fields = "__all__"
+    success_url = reverse_lazy("task_manager:task-type-list")
+
+
+class TaskTypeUpdateView(FormPageMixin, generic.UpdateView):
+    model = TaskType
+    fields = "__all__"
+    success_url = reverse_lazy("task_manager:task-type-list")
+
+
+class TaskTypeDeleteView(DeletePageMixin, generic.DeleteView):
+    model = TaskType
+    success_url = reverse_lazy("task_manager:task-type-list")
+
+
+class TagCreateView(FormPageMixin, generic.CreateView):
+    model = Tag
+    fields = "__all__"
+    success_url = reverse_lazy("task_manager:tag-list")
+
+
+class TagUpdateView(FormPageMixin, generic.UpdateView):
+    model = Tag
+    fields = "__all__"
+    success_url = reverse_lazy("task_manager:tag-list")
+
+
+class TagDeleteView(DeletePageMixin, generic.DeleteView):
+    model = Tag
+    success_url = reverse_lazy("task_manager:tag-list")

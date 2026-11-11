@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="card p-4 mx-auto" style="max-width: 560px;">
+    <h1 class="page-title h4">Delete {{ model_name }}</h1>
+    <p>Are you sure you want to delete <strong>{{ object }}</strong>? This can't be undone.</p>
+    <form action="" method="post" class="d-flex gap-2">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Yes, delete</button>
+      <a href="javascript:history.back()" class="btn btn-outline-secondary">Cancel</a>
+    </form>
+  </div>
+{% endblock %}
