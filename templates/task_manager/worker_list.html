@@ -5,7 +5,7 @@
     <h1 class="page-title h3 mb-0">Workers</h1>
     <a href="{% url 'task_manager:worker-create' %}" class="btn btn-primary"><i class="bi bi-person-plus"></i> New worker</a>
   </div>
-  {% block search %}{% endblock %}
+  {% include "includes/search_form.html" %}
   {% if worker_list %}
     <div class="card">
       <div class="table-responsive">

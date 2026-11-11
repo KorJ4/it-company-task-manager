@@ -5,7 +5,7 @@
     <h1 class="page-title h3 mb-0">Positions</h1>
     <a href="{% url 'task_manager:position-create' %}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> New position</a>
   </div>
-  {% block search %}{% endblock %}
+  {% include "includes/search_form.html" %}
   {% if position_list %}
     <div class="card">
       <ul class="list-group list-group-flush">
