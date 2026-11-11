@@ -9,11 +9,16 @@
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav me-auto">
         <li class="nav-item"><a class="nav-link" href="{% url 'task_manager:index' %}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'task_manager:task-list' %}">Tasks</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'task_manager:worker-list' %}">Workers</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'task_manager:position-list' %}">Positions</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'task_manager:task-type-list' %}">Task types</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'task_manager:tag-list' %}">Tags</a></li>
       </ul>
       <div class="d-flex align-items-center gap-3">
-        <span class="text-light small">
+        <a class="text-light small text-decoration-none" href="{% url 'task_manager:worker-detail' pk=user.id %}">
           <i class="bi bi-person-circle"></i> {{ user.username }}
-        </span>
+        </a>
         <form action="{% url 'logout' %}" method="post" class="m-0">
           {% csrf_token %}
           <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>

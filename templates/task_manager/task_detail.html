@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+    <div>
+      <h1 class="page-title h3 mb-1 {% if task.is_completed %}task-done{% endif %}">{{ task.name }}</h1>
+      <div class="d-flex flex-wrap gap-2 align-items-center">
+        {% include "includes/priority_badge.html" %}
+        <span class="badge text-bg-secondary">{{ task.task_type }}</span>
+        {% for tag in task.tags.all %}
+          <span class="badge rounded-pill text-bg-light border">#{{ tag.name }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% block actions %}{% endblock %}
+  </div>
+  <div class="row g-3">
+    <div class="col-lg-8">
+      <div class="card p-3 h-100">
+        <h2 class="h6 text-muted">Description</h2>
+        <p class="mb-0">{{ task.description|default:"No description."|linebreaksbr }}</p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card p-3 mb-3">
+        <div class="small text-muted">Deadline</div>
+        <div class="fw-semibold">{{ task.deadline|date:"d F Y" }}</div>
+        <div class="small text-muted mt-2">Status</div>
+        <div class="fw-semibold">{% if task.is_completed %}Completed{% else %}In progress{% endif %}</div>
+      </div>
+      <div class="card p-3">
+        <h2 class="h6 text-muted">Assignees</h2>
+        <ul class="list-unstyled mb-0">
+          {% for worker in task.assignees.all %}
+            <li><a href="{{ worker.get_absolute_url }}">{{ worker.username }}</a> <span class="text-muted small">{{ worker.position|default:"" }}</span></li>
+          {% empty %}
+            <li class="text-muted">Nobody is assigned yet.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
