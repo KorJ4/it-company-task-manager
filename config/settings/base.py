@@ -77,7 +77,6 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = "task_manager.Worker"
 
 LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/accounts/login/"
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "Europe/Kyiv"
